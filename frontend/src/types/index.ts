@@ -29,3 +29,29 @@ export interface Preset {
   particleCount: number;
   initialConfig: 'dam' | 'drop' | 'fountain' | 'wave';
 }
+
+export interface CameraView {
+  scale: number;
+  offsetX: number;
+  offsetY: number;
+}
+
+export interface SceneStep {
+  id: string;
+  title: string;
+  description: string;
+  presetName?: string;
+  paramChanges?: Partial<SimParams>;
+  camera?: CameraView;
+  duration: number;
+  startPaused?: boolean;
+  highlight?: 'particles' | 'density' | 'velocity' | 'pressure' | 'none';
+  autoAdvance?: boolean;
+}
+
+export interface LectureScene {
+  id: string;
+  title: string;
+  description: string;
+  steps: SceneStep[];
+}
